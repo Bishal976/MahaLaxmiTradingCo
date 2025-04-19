@@ -1,3 +1,4 @@
+import { url } from "inspector";
 
 // Company Information
 export const companyInfo = {
@@ -18,17 +19,17 @@ export const companyInfo = {
 // Contact Information
 export const contactInfo = {
   address: {
-    street: "123 Construction Avenue",
-    area: "Industrial Area",
-    cityState: "City, State 123456"
+    street: "Opposite of Rajoun Block",
+    area: "Kifayatpur, Rajoun",
+    cityState: "Banka 813107"
   },
   phone: {
-    primary: "+91 98765 43210",
-    secondary: "+91 12345 67890",
-    hotline: "+91 99988 77766"
+    primary: "+91 91352 26485",
+    secondary: "+91 94308 62239",
+    hotline: "+91 91352 26485"
   },
   email: {
-    info: "info@mahalaxmitrading.com",
+    info: "singhbasukinath9@gmail.com",
     sales: "sales@mahalaxmitrading.com"
   },
   urgentDeliveryText: "Need Products Urgently?",
@@ -39,27 +40,31 @@ export const contactInfo = {
 export const productCategories = [
   {
     id: 1,
-    title: "Cement & Concrete",
-    description: "Premium quality cement and concrete mixes for structural integrity and durability.",
-    image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800",
+    title: "Shree Cement CNF ship",
+    description: "Premium quality cement for structural integrity and durability, delievered through our dealer networks.",
+    url: "https://www.shreecement.com/our-business#products",
+    image: "../assets/shree01.png",
   },
   {
     id: 2,
-    title: "Steel & Metals",
-    description: "High-grade reinforcement steel, structural steel, and metal products.",
-    image: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=800",
+    title: "Tufcon Steel CNF ship",
+    description: "High-grade reinforcement steel and structural steel, delievered through our dealer networks.",
+    url: "https://tufcon.com/tmt-rebars.php",
+    image: "../assets/tufcon.webp",
   },
   {
     id: 3,
-    title: "Bricks & Blocks",
-    description: "Clay bricks, concrete blocks, and AAC blocks for quality wall construction.",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800",
+    title: "Maa Tara Transports",
+    description: "Reliable transportation services for cement shipment from factory to individual dealers, covering five states.",
+    url: "https://maps.app.goo.gl/5YvRKbkZgA8TWHeF6",
+    image: "../assets/maaTaraTransports",
   },
   {
     id: 4,
-    title: "Hardware & Tools",
-    description: "Construction hardware, fasteners, and quality tools for every project need.",
-    image: "https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=800",
+    title: "Sand & Stone Chips",
+    description: "High quality Sand, Stone Chips and other misc raw materials, delievered from our main office Rajoun.",
+    url: "https://maps.app.goo.gl/5YvRKbkZgA8TWHeF6",
+    image: "../assets/mahaLaxmiTradingCo",
   },
 ];
 
@@ -140,21 +145,15 @@ export const heroData = {
 // Products Section Data
 export const productsData = {
   title: "Our Products",
-  description: "We provide a comprehensive range of high-quality construction materials",
-  customOrderText: "Looking for specific construction materials not listed here? We offer a wide range of products to meet your project needs.",
+  description: "We provide a comprehensive range of high-quality construction materials through our dealership networks.",
+  customOrderText: "Looking for specific construction materials/ Services not listed here? We offer a wide range of products and services to meet your project needs.",
   buttonText: "Contact for Custom Orders"
-};
-
-// Reviews Section Data
-export const reviewsData = {
-  title: "Customer Reviews",
-  description: "See what our customers are saying about us and share your own experience"
 };
 
 // Contact Section Data
 export const contactSectionData = {
   title: "Contact Us",
-  description: "Have questions about our products or need a quote? Get in touch with us.",
+  description: "Have questions about our products/services? Get in touch with us.",
   formTitle: "Send Us a Message",
   formSubmitButtonText: "Send Message",
   infoTitle: "Contact Information",

@@ -14,31 +14,43 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {productCategories.map((category) => (
-            <div key={category.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:-translate-y-2">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={category.image} 
-                  alt={category.title} 
-                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-construction-darkBlue mb-2">{category.title}</h3>
-                <p className="text-construction-gray mb-4">{category.description}</p>
-                <Button 
-                  variant="outline" 
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {productCategories.map((category) => (
+          <div
+            key={category.id}
+            className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-transform hover:-translate-y-2"
+          >
+            {/* Fixed height image container */}
+            <div className="h-56 overflow-hidden">
+              <img
+                src={category.image}
+                alt={category.title}
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            {/* Content section */}
+            <div className="flex flex-col flex-1 p-6">
+              <h3 className="text-xl font-bold text-construction-darkBlue mb-2">
+                {category.title}
+              </h3>
+              <p className="text-construction-gray mb-4">{category.description}</p>
+
+              {/* Button at the bottom */}
+              <div className="mt-auto">
+                <Button
+                  variant="outline"
                   className="w-full border-construction-blue text-construction-blue hover:bg-construction-blue hover:text-white"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.open(category.url, '_blank')}
                 >
-                  Inquire Now
+                  Check out
                 </Button>
               </div>
             </div>
-          ))}
+          </div>
+        ))}
         </div>
-
+        
         <div className="mt-16 text-center">
           <p className="text-construction-gray mb-6">
             {productsData.customOrderText}

@@ -22,11 +22,10 @@ const About = () => {
   };
 
   const carouselImages = [
-  "https://images.unsplash.com/photo-1581093588401-7c2d2a17d8a5", // construction site
-  "https://images.unsplash.com/photo-1528892952291-009c663ce843", // materials on transport
-  "https://images.unsplash.com/photo-1556761175-4b46a572b786",   // business meeting
+  "../assets/car01.jpg", 
+  "../assets/car02.jpg", 
+  "../assets/car03.jpg", 
 ];
-
 
   return (
     <section id="about" className="py-20 bg-white">
@@ -67,7 +66,7 @@ const About = () => {
                         <img
                           src={src}
                           alt={`Slide ${index + 1}`}
-                          className="max-h-[500px] w-auto object-contain mx-auto"
+                          className="max-h-[350px] w-auto object-contain mx-auto"
                         />
                       </CarouselItem>
                     ))}
@@ -77,8 +76,7 @@ const About = () => {
                 </Carousel>
               </div>
             </div>
-
-            <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-construction-orange rounded-lg flex items-center justify-center p-6">
+            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-construction-orange rounded-lg flex items-center justify-center p-6">
               <p className="text-white text-xl font-bold text-center">
                 {aboutData.tagline}
               </p>

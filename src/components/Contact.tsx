@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 import { contactInfo, contactSectionData, companyInfo } from '@/data/siteData';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -14,38 +14,68 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const isPhoneValid = (value: string) => /^\d{10}$/.test(value);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Form validation
-    if (!name || !email || !message) {
+
+    if (!name || !email || !message || (phone && !isPhoneValid(phone))) {
       toast({
         title: "Error",
-        description: "Please fill in all required fields.",
+        description: "Please fill in all required fields. Phone number must be 10 digits if provided.",
         variant: "destructive",
       });
       return;
     }
 
-    // Here you would typically send the data to a server
-    console.log({ name, email, phone, message });
-    
-    // Show success message
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out! We'll get back to you soon.",
+    setLoading(true);
+
+    const templateParams = {
+      name,
+      email,
+      phone,
+      message,
+    };
+
+       emailjs.send(
+      'service_yde06lp',      // Replace with your actual EmailJS service ID
+      'template_er5oyy1',     // Replace with your template ID
+      templateParams,
+      'sl68aj1hrdmPiOcWO'          // Replace with your public API key (not secret)
+    )
+     
+    emailjs.send(
+      'service_yde06lp',      // Replace with your actual EmailJS service ID
+      'template_2qhnh2k',     // Replace with your template ID
+      templateParams,
+      'sl68aj1hrdmPiOcWO'          // Replace with your public API key (not secret)
+    ).then(() => {
+      toast({
+        title: "Message Sent",
+        description: "Thank you for reaching out! We'll get back to you soon.",
+      });
+
+      setName('');
+      setEmail('');
+      setPhone('');
+      setMessage('');
+    }).catch((err) => {
+      console.error("EmailJS Error:", err);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Try again.",
+        variant: "destructive",
+      });
+    }).finally(() => {
+      setLoading(false);
     });
-    
-    // Reset form
-    setName('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
   };
 
+
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto mb-16 text-center">
           <h2 className="section-heading center-heading">{contactSectionData.title}</h2>
@@ -55,9 +85,9 @@ const Contact = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="bg-white p-8 rounded-lg shadow-sm">
+          <div className="bg-gray-100 p-8 rounded-lg shadow-sm">
             <h3 className="text-2xl font-bold text-construction-darkBlue mb-6">{contactSectionData.formTitle}</h3>
-            
+
             <form onSubmit={handleSubmit}>
               <div className="space-y-4">
                 <div>
@@ -66,11 +96,11 @@ const Contact = () => {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="mt-1"
                     placeholder="Your Name"
+                    required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email">Email *</Label>
                   <Input
@@ -78,47 +108,54 @@ const Contact = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1"
                     placeholder="Your Email"
+                    required
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="phone">Phone Number</Label>
                   <Input
                     id="phone"
+                    inputMode="numeric"
+                    pattern="\d*"
+                    maxLength={10}
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="mt-1"
-                    placeholder="Your Phone Number"
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, '');
+                      if (val.length <= 10) setPhone(val);
+                    }}
+                    placeholder="10-digit Phone Number"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message">Message *</Label>
                   <Textarea
                     id="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="mt-1"
                     placeholder="How can we help you?"
                     rows={4}
+                    required
                   />
                 </div>
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="w-full bg-construction-blue hover:bg-construction-darkBlue text-white"
+                  disabled={loading}
                 >
-                  {contactSectionData.formSubmitButtonText}
+                  {loading ? "Sending..." : contactSectionData.formSubmitButtonText}
                 </Button>
               </div>
             </form>
           </div>
-          
+
+          {/* Contact Info Section */}
           <div>
             <h3 className="text-2xl font-bold text-construction-darkBlue mb-6">{contactSectionData.infoTitle}</h3>
-            
+
             <div className="space-y-6">
               <div className="flex items-start">
                 <MapPin className="text-construction-orange mt-1 mr-4" size={24} />
@@ -131,7 +168,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <Phone className="text-construction-orange mt-1 mr-4" size={24} />
                 <div>
@@ -142,7 +179,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <Mail className="text-construction-orange mt-1 mr-4" size={24} />
                 <div>
@@ -153,7 +190,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start">
                 <Clock className="text-construction-orange mt-1 mr-4" size={24} />
                 <div>
@@ -165,7 +202,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-8 p-6 bg-construction-darkBlue text-white rounded-lg">
               <h4 className="text-xl font-semibold mb-2">{contactInfo.urgentDeliveryText}</h4>
               <p className="mb-4">{contactInfo.urgentDeliveryDescription}</p>
@@ -179,3 +216,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
