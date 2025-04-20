@@ -131,8 +131,8 @@ export const aboutData = {
 // Hero Section Data
 export const heroData = {
   backgroundImage: "../assets/hero-background.jpg",
-  title: "Quality Construction Materials for Every Project",
-  description: "Maha Laxmi Trading provides premium construction materials to build a stronger tomorrow",
+  title: "Leading Construction Material Supplier in Bihar",
+  description: "Maha Laxmi Trading Company provides premium construction materials across Banka, Bhagalpur, Munger, and Lakhisaray to build a stronger tomorrow",
   buttons: {
     primary: {
       text: "Our Products",
