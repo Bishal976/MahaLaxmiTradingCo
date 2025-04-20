@@ -56,14 +56,14 @@ export const productCategories = [
     title: "Maa Tara Transports",
     description: "Reliable transportation services for cement shipment from factory to individual dealers, covering five states.",
     url: "https://maps.app.goo.gl/5YvRKbkZgA8TWHeF6",
-    image: "../assets/maaTaraTransports",
+    image: "../assets/maaTaraTransports.png",
   },
   {
     id: 4,
     title: "Sand & Stone Chips",
     description: "High quality Sand, Stone Chips and other misc raw materials, delievered from our main office Rajoun.",
     url: "https://maps.app.goo.gl/5YvRKbkZgA8TWHeF6",
-    image: "../assets/mahaLaxmiTradingCo",
+    image: "../assets/mahaLaxmiTradingCo.png",
   },
 ];
 

@@ -8,7 +8,6 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.error("404 Error: User attempted to access:", location.pathname);
     toast.error("Page not found: " + location.pathname, {
       description: "We couldn't locate the page you were trying to access.",
     });

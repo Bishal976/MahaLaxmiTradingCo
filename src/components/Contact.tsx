@@ -62,7 +62,6 @@ const Contact = () => {
       setPhone('');
       setMessage('');
     }).catch((err) => {
-      console.error("EmailJS Error:", err);
       toast({
         title: "Error",
         description: "There was a problem sending your message. Try again.",
