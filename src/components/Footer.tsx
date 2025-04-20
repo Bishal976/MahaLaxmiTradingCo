@@ -35,7 +35,7 @@ const Footer = () => {
               >
                 <span className="sr-only">LinkedIn</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -86,20 +86,23 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-4">
-              <li className="flex">
-                <MapPin size={30} className="mr-2 text-construction-orange" />
-                <span className="text-gray-300">Opposite of Rajoun Block, Kifayatpur Rajoun, Banka, Bihar 813107</span>
+              <li className="flex items-start">
+                <MapPin className="text-construction-orange mt-1 mr-4 flex-shrink-0" size={24} />
+                <span className="text-gray-300">
+                  Opposite of Rajoun Block, Kifayatpur Rajoun, Banka, Bihar 813107
+                </span>
               </li>
-              <li className="flex">
-                <Phone size={15} className="mr-2 text-construction-orange" />
+              <li className="flex items-start">
+                <Phone className="text-construction-orange mt-1 mr-4 flex-shrink-0" size={24} />
                 <span className="text-gray-300">+91 91352 26485</span>
               </li>
-              <li className="flex">
-                <Mail size={30} className="mr-2 text-construction-orange" />
+              <li className="flex items-start">
+                <Mail className="text-construction-orange mt-1 mr-4 flex-shrink-0" size={24} />
                 <span className="text-gray-300">singhbasukinath9@gmail.com</span>
               </li>
             </ul>
           </div>
+
         </div>
         
         <div className="border-t border-gray-700 mt-12 pt-8">

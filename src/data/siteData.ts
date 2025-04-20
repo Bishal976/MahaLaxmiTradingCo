@@ -30,7 +30,6 @@ export const contactInfo = {
   },
   email: {
     info: "singhbasukinath9@gmail.com",
-    sales: "sales@mahalaxmitrading.com"
   },
   urgentDeliveryText: "Need Products Urgently?",
   urgentDeliveryDescription: "Contact our express delivery team for same-day deliveries within city limits."
@@ -121,7 +120,11 @@ export const aboutData = {
       ]
     }
   ],
-  image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800",
+  carouselImages: [
+    "../assets/car01.jpg", 
+    "../assets/car02.jpg", 
+    "../assets/car03.jpg", 
+  ],
   tagline: "Quality You Can Trust"
 };
 

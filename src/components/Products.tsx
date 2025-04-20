@@ -15,7 +15,7 @@ const Products = () => {
         </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {productCategories.map((category) => (
+        {productCategories.map((category, index) => (
           <div
             key={category.id}
             className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition-transform hover:-translate-y-2"
@@ -25,7 +25,9 @@ const Products = () => {
               <img
                 src={category.image}
                 alt={category.title}
-                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                className={`w-full h-full transform hover:scale-105 transition-transform duration-500 ${
+                            index === 0 ? 'object-contain' : 'object-cover'
+                  }`}
               />
             </div>
 

@@ -21,12 +21,6 @@ const About = () => {
     );
   };
 
-  const carouselImages = [
-  "../assets/car01.jpg", 
-  "../assets/car02.jpg", 
-  "../assets/car03.jpg", 
-];
-
   return (
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
@@ -61,7 +55,7 @@ const About = () => {
               <div className="mt-16 inset-0">
                 <Carousel autoPlayInterval={4000}>
                   <CarouselContent className="items-center">
-                    {carouselImages.map((src, index) => (
+                    {aboutData.carouselImages.map((src, index) => (
                       <CarouselItem key={index} className="flex items-center justify-center">
                         <img
                           src={src}
