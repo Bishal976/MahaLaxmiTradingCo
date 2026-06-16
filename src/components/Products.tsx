@@ -43,7 +43,7 @@ const Products = () => {
                 <Button
                   variant="outline"
                   className="w-full border-construction-blue text-construction-blue hover:bg-construction-blue hover:text-white"
-                  onClick={() => window.open(category.url, '_blank')}
+                  onClick={() => window.open(category.url, '_blank', 'noopener,noreferrer')}
                 >
                   Check out
                 </Button>

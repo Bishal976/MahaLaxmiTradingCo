@@ -40,17 +40,17 @@ const Contact = () => {
     };
 
        emailjs.send(
-      'service_yde06lp',      // Replace with your actual EmailJS service ID
-      'template_er5oyy1',     // Replace with your template ID
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_OWNER,
       templateParams,
-      'sl68aj1hrdmPiOcWO'          // Replace with your public API key (not secret)
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
-     
+
     emailjs.send(
-      'service_yde06lp',      // Replace with your actual EmailJS service ID
-      'template_2qhnh2k',     // Replace with your template ID
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID_USER,
       templateParams,
-      'sl68aj1hrdmPiOcWO'          // Replace with your public API key (not secret)
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     ).then(() => {
       toast({
         title: "Message Sent",

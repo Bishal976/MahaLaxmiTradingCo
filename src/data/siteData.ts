@@ -1,5 +1,3 @@
-import { url } from "inspector";
-
 // Company Information
 export const companyInfo = {
   name: "Maha Laxmi Trading",
