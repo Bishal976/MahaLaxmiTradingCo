@@ -1,5 +1,7 @@
 # Maha Laxmi Trading — Portfolio Website
 
+> **⚠️ STRICT LEGAL NOTICE:** This repository and all its artifacts are proprietary. Viewing the code is permitted for demonstration purposes only. Copying, cloning, redistribution, or use of this code or its visual assets, in whole or in part, without explicit written permission is strictly prohibited.
+
 Business portfolio website for **Maha Laxmi Trading**, a construction materials supplier based in Banka, Bihar, India. Built as a single-page application to showcase products, services, and contact information.
 
 **Live site:** [mahalaxmitrading.in](https://www.mahalaxmitrading.in)
@@ -100,8 +102,6 @@ MahaLaxmiTradingCo/
 
 ## Legal Disclaimer & License
 
-This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for the full text.
+This project is **proprietary and closed-source** — see the [LICENSE](./LICENSE) file for the full text. No permission is granted to use, copy, modify, or distribute this code, its designs, or any visual artifacts.
 
-> **Important:** The code in this repository is provided for demonstration and educational purposes. While the code is open-source, the branding, logos, and personal/business data (including but not limited to the company name "Maha Laxmi Trading", all logo files, photographs, and contact information) remain the intellectual property of Maha Laxmi Trading and Basuki Nath Singh, and **may not be reused without explicit written permission**.
-
-If you fork this project for your own portfolio site, replace all content in `src/data/siteData.ts`, all images in `public/assets/`, and all references in `index.html` with your own.
+All branding, logos, and personal/business data (including but not limited to the company name "Maha Laxmi Trading", all logo files, photographs, and contact information) remain the intellectual property of Maha Laxmi Trading and Basuki Nath Singh.
